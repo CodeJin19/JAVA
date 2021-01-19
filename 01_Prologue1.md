@@ -1,4 +1,4 @@
-# JAVA Prolog1
+# JAVA Prologue1
 
 ## JAVA의 특징
 

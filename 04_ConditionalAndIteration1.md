@@ -2,7 +2,7 @@
 
 ## 목차
 
-[조건문과 반복문](#조건문과-반복문)
+[조건문과 반복문](#조건문과_반복문)
 
 [조건문](#조건문)
 
@@ -18,7 +18,7 @@
 
 [do-while문](#do-while문)
 
-[continue문과 break문](#continue문과-break문)
+[continue문과 break문](#continue문과_break문)
 
 <br>
 
@@ -234,8 +234,8 @@ while문과 같은 예제를 사용했으나, do-while문의 경우 바디를 �
 
 ### continue문과 break문
 
-continue와 break는 반복문은 아니지만, 반복문을 제어하는 키워드이다.
+continue와 break는 반복문은 아니지만, 반복문을 제어하는 두 가지 중요한 키워드다.
 
 break문은 switch문에서도 나왔듯이, 가장 안쪽에 있는 반복문 하나를 탈출한다.
 
-continue문은 반복문의 조건식으로 빠져나가 조건식을 실행한다.
+continue문은 반복문의 현재 진행 중인 블럭을 멈추고 조건식으로 돌아가 반복문을 다시 반복한다.

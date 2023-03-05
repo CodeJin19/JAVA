@@ -2,7 +2,7 @@
 
 ## 목차
 
-[조건문과 반복문](#조건문과_반복문)
+[조건문과 반복문](#조건문과-반복문)
 
 [조건문](#조건문)
 
@@ -18,7 +18,7 @@
 
 [do-while문](#do-while문)
 
-[continue문과 break문](#continue문과_break문)
+[continue문과 break문](#continue문과-break문)
 
 <br>
 

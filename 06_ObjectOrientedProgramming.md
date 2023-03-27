@@ -10,6 +10,10 @@
 
 [변수와 메서드](#변수와-메서드)
 
+[변수의 종류](#변수의-종류)
+
+[메서드](#메서드)
+
 <br>
 
 ## 객체지향언어
@@ -60,6 +64,7 @@ class Car {
     //클래스 car의 멤버변수
     int speed;
     int weight;
+    static int totalCars;
     String model;
 
     //클래스 car의 메서드
@@ -75,7 +80,7 @@ class carSample{
         Car myCar;
         myCar = new Car();
         myCar.speed = 60;
-        myCar.getInfo;
+        myCar.getInfo();
     }
 }
 ```
@@ -97,3 +102,55 @@ myCar = new Car();
 <br>
 
 ## 변수와 메서드
+
+### 변수의 종류
+
+변수는 클래스 변수, 인스턴스 변수, 지역변수 세 가지가 있다.
+
+아래 예제에서 클래스 변수는 totalCars이며, 인스턴스 변수는 speed, weight, model이다.
+
+지역변수는 getInfo 등의 메서드에서 사용하는 변수로 아래 예제에는 지역변수 예시가 없다.
+
+```java
+class Car {
+    //클래스 car의 멤버변수
+    int speed;
+    int weight;
+    static int totalCars;
+    String model;
+
+    //클래스 car의 메서드
+    void getInfo() {
+        System.out.println("model : " + model);
+        System.out.println("weight : " + weight);
+        System.out.println("current speed : " + speed);
+    }
+}
+
+class carSample{
+    public static void main(String args[]) {
+        Car myCar;
+        myCar = new Car();
+        myCar.speed = 60;
+        myCar.getInfo();
+    }
+}
+```
+
+| 변수의 종류   | 선언 위치               | 생성 시기                   |
+| ------------- | ----------------------- | --------------------------- |
+| 클래스 변수   | 클래스 영역             | 클래스가 메모리에 올라갈 때 |
+| 인스턴스 변수 | 클래스 영역             | 인스턴스가 생성되었을 때    |
+| 지역 변수     | 클래스 영역 이외의 영역 | 변수 선언문이 수행되었을 때 |
+
+<br>
+
+### 메서드
+
+메서드는 프로그램에서 반복적으로 사용되는 기능을 구현해놓은 것으로, 다른 언어에서 "함수"라고 한다.
+
+다음음 메서드를 사용하는 이유다.
+
+1. 높은 재사용성
+2. 중복된 코드의 제거
+3. 프로그램의 구조화

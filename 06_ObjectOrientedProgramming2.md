@@ -10,6 +10,12 @@
 
 [가변인자 오버로딩](#가변인자-오버로딩)
 
+[생성자](#생성자)
+
+[기본 생성자](#기본-생성자)
+
+[초기화 블록](#초기화-블록)
+
 <br>
 
 ## JVM의 메모리 구조
@@ -71,4 +77,136 @@
 (반환타입) 메서드_이름 (타입 이름, 타입... 이름) {
 
 }
+```
+
+<br>
+
+## 생성자
+
+생성자는 인스턴스를 생성할 때 호출되는 인스턴스를 초기화하는 메서드다.
+
+생성자는 아래 두 가지 조건을 만족한다.
+
+1. 생성자 이름은 클래스 이름과 같다.
+2. 생성자는 리턴형과 리턴값이 모두 없다. (void도 없다는 뜻)
+
+```java
+class Car {
+    int speed;
+    int weight;
+    String model;
+
+    //생성자
+    Car() {
+    }
+}
+
+class carSample{
+    public static void main(String args[]) {
+        Car myCar = new Car();
+    }
+}
+```
+
+1. 연산자 new에 의해 힙 메모리에 Car 인스턴스가 생성된다.
+2. 생성자 Car()가 호출되어 인스턴스가 초기화된다.
+3. 생성되고 초기화된 인스턴스의 주소가 참조변수 myCar에 저장된다.
+
+<br>
+
+한 클래스 내에는 여러 개의 생성자가 오버로딩되어 존재할 수 있다.
+
+각 생성자는 서로 다른 생성자를 호출할 수 있는데, 이 때 지켜야 할 조건은 다음과 같다.
+
+1. 호출하는 생성자의 이름은 this()다.
+2. 반드시 첫 줄에서만 생성자를 호출할 수 있다.
+
+```java
+class Car {
+    int speed;
+    int weight;
+    String model;
+
+    //생성자
+    Car() {
+        speed = 0;
+        weight = 1200;
+        model = "S3";
+    }
+
+    Car(int speed, int weight, String model) {
+        this.speed = speed;
+        this.weight = weight;
+        this.model = model;
+    }
+
+    Car(String model) {
+        this(0, 1400, model); //다른 생성자 호출
+    }
+}
+
+class carSample{
+    public static void main(String args[]) {
+        Car myCar = new Car();
+    }
+}
+```
+
+<br>
+
+## 기본 생성자
+
+모든 클래스에는 생성자가 하나 이상 정의되어있어야한다.
+
+생성자가 정의되어 있지 않는 경우에는 **컴파일러가 기본 생성자를 추가하여 컴파일한다.**
+
+컴파일러가 기본 생성자를 추가하는 조건은 다음과 같다.
+
+- 클래스에 정의된 생성자가 한 개도 없는 경우, 컴파일러가 기본 생성자를 추가하여 컴파일한다.
+
+<br>
+
+## 초기화 블록
+
+초기화 블록은 변수들을 초기화하는 블록으로, 클래스 변수를 초기화하는 클래스 초기화 블록, 인스턴스 변수를 초기화하는 인스턴스 초기화 블록이 있다.
+
+클래스 초기화 블록은 클래스가 메모리에 처음 로딩될 때 한 번만 수행된다.
+
+인스턴스 초기화 블록은 인스턴스가 생성될 때마다 수행된다.
+
+```java
+class BlockTest {
+    static { //클래스 초기화 블록
+        System.out.println("STATIC BLOCK");
+    }
+
+    { //인스턴스 초기화 블록
+        System.out.println("INSTANCE BLOCK");
+    }
+
+    //생성자
+    BlockTest() {
+        System.out.println("생성자");
+    }
+
+    public static void main(String args[]) {
+        System.out.println("첫 인스턴스 생성");
+        BlockTest bt1 = new BlockTest();
+
+        System.out.println("두 번째 인스턴스 생성");
+        BlockTest bt2 = new BlockTest();
+    }
+}
+```
+
+위 예제의 실행 결과는 아래와 같다.
+
+```
+STATIC BLOCK
+첫 인스턴스 생성
+INSTANCE BLOCK
+생성자
+두 번째 인스턴스 생성
+INSTANCE BLOCK
+생성자
 ```

@@ -1,4 +1,4 @@
-# Variable
+# Variable2
 
 ## 목차
 

@@ -10,6 +10,8 @@
 
 [조상 클래스 기본 생성자](#조상-클래스-기본-생성자)
 
+[패키지](#패키지)
+
 <br>
 
 ## 상속
@@ -78,3 +80,67 @@ JAVA의 모든 클래스는 Object 클래스의 자손이다.
 생성자가 정의되어 있지 않는 경우에는 컴파일러가 기본 생성자를 추가하듯이,
 
 Object를 제외한 모든 클래스의 생성자 첫 줄에는 생성자, this() 또는 super()를 호출해야 한다. 그렇지 않으면 컴파일러가 super()를 생성자의 첫 줄에 추가한다.
+
+<br>
+
+## 패키지
+
+패키지는 클래스의 묶음으로, 다수의 클래스를 효율적으로 관리하기 위해 사용된다.
+
+클래스의 정식 이름은 (패키지).(클래스)다.
+
+예컨대, Math 클래스의 정식 이름은 java.lang.Math다.
+
+이름에서 알 수 있듯이 각 클래스 파일들은 해당 패키지에 대응되는 디렉토리에 존재한다.
+
+같은 이름의 파일이 서로 다른 디렉토리에 존재할 수 있듯이, 같은 이름의 클래스 파일도 서로 다른 패키지 내부에 존재할 수 있다.
+
+<br>
+
+패키지는 다음과 같이 선언할 수 있다.
+
+```java
+package com.example.java;
+
+class PackageSample {
+   public static void main (String[] args) {
+      System.out.println("Hello, world!");
+   }
+}
+```
+
+패키지 선언은 모든 소스 파일에서 주석과 공백을 제외한 첫 문장이어야 한다.
+
+또한, 패키지는 하나의 소스 파일에 한 번만 선언될 수 있다.
+
+패키지 선언문이 없는 경우, 자바에서 기본적으로 이름없는 패키지(unnamed package)에 넣어준다.
+
+<br>
+
+프로그래밍을 할 때 다른 패키지의 클래스를 사용하려면 다음과 같이 해당 클래스의 정식이름을 사용해야한다.
+
+```java
+class PackageSample {
+   public static void main (String[] args) {
+      int y = 5;
+      int x = 3;
+      int big = java.util.Math.max(x, y);
+   }
+}
+```
+
+<br>
+
+하지만 import문을 사용하여 사용할 클래스의 패키지를 미리 명시하면 다음과 같이 작성할 수 있다.
+
+```java
+import java.util.Math;
+
+class PackageSample {
+   public static void main (String[] args) {
+      int y = 5;
+      int x = 3;
+      int big = Math.max(x, y);
+   }
+}
+```

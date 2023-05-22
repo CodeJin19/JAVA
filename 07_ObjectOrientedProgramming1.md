@@ -16,6 +16,12 @@
 
 [final](#final)
 
+[abstract](#abstract)
+
+[접근 제어자](#접근-제어자)
+
+[Singleton](#singleton)
+
 <br>
 
 ## 상속
@@ -176,3 +182,57 @@ abstract 메서드는 추상 메서드, abstract 클래스는 추상 클래스�
 abstract 메서드는 선언부만 작성하고 구현부는 작성되지 않은 메서드다.
 
 abstract 클래스는 abstract 메서드를 포함하고 있는 클래스다.
+
+<br>
+
+## 접근 제어자
+
+접근 제어자는 멤버변수나 클래스에 사용되어, 각 멤버변수나 클래스의 접근을 제어하는 키워드다.
+
+접근 제어자는 다음 네 가지가 있다.
+
+1. private
+   - 같은 클래스 내에서만 접근 가능
+2. default
+   - 같은 패키지 내에서만 접근 가능
+3. protected
+   - 같은 패키지와 타 패키지의 자손 클래스에서 접근 가능
+4. public
+   - 접근 제한 없음
+
+<br>
+
+## Singleton
+
+싱글톤은 객체의 인스턴스를 단 하나만 생성하게 하는 디자인 패턴이다.
+
+싱글톤은 다음과 같이 개발할 수 있다.
+
+```java
+class Singleton{
+   private static Singleton s = new Singleton();
+
+   private Singleton() {
+      //...
+   }
+
+   public static Singleton getSingleton() {
+      return s;
+   }
+}
+```
+
+<br>
+
+간단히 요약하자면,
+
+1. 생성자를 private으로 만들어서, 외부에서 2개 이상의 인스턴스를 만들지 못하게 한다
+
+2. 멤버변수로 인스턴스를 정의하고, static으로 생성한다
+
+   1. 생성자가 private이기 때문에 내부에서 호출해야함
+   2. 내부에서 단 한 번 생성해야 하기 때문에 static으로 선언함
+
+3. static으로 생성한 인스턴스에 접근하기 위해 get 메서드를 선언한다
+
+<br>

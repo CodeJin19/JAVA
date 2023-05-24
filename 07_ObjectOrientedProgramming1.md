@@ -234,5 +234,3 @@ class Singleton{
    2. 내부에서 단 한 번 생성해야 하기 때문에 static으로 선언함
 
 3. static으로 생성한 인스턴스에 접근하기 위해 get 메서드를 선언한다
-
-<br>

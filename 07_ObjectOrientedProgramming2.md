@@ -8,6 +8,8 @@
 
 [추상메서드](#추상메서드)
 
+[인터페이스](#인터페이스)
+
 <br>
 
 ## 다형성
@@ -73,3 +75,50 @@ class someClass extends AbstractClass{
    }
 }
 ```
+
+<br>
+
+## 인터페이스
+
+인터페이스는 **추상메서드와 상수로만 이루어진 추상클래스**다.
+
+추상클래스와 같이 온전한 메서드나 멤버변수를 가질 수 없다.
+
+인터페이스는 Interface로 선언할 수 있으며 사용 방법은 다음과 같다.
+
+```java
+Interface someInterface{
+   public abstract abstractMethod();
+}
+```
+
+<br>
+
+인터페이스의 모든 멤버변수는 `public static final`이며, 모든 메서드는 `public abstrat`인데, 생략 가능하다.
+
+<br>
+
+추상메서드를 구현하기 위해서는 자손 클래스에서 구현해야 하듯이, 인터페이스의 추상 메서드를 구현하기 위해서는 인터페이스를 상속받는 자손 클래스를 생성 후, 구현해야한다.
+
+```java
+Interface someInterface{
+   public abstract void abstractMethod();
+}
+
+class someClass implements someInterface {
+   @Override
+   public void abstractMethod() {
+      //구현부
+   }
+}
+```
+ 
+<br>
+
+클래스가 인터페이스를 상속할 때는 implements 키워드를 사용한다.
+
+인터페이스를 상속받은 클래스는 인터페이스의 모든 추상 메서드를 구현해야 한다.
+
+그렇지 않을 경우, 해당 클래스에 abstract를 붙여 추상클래스로 선언해야 한다.
+
+또한, 인터페이스는 인터페이스로부터 상속 가능하다.

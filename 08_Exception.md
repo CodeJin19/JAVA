@@ -6,6 +6,10 @@
 
 [try catch](#try-catch)
 
+[예외 발생 방법](#예외-발생-방법)
+
+[throw](#throw)
+
 <br>
 
 ## 프로그램 오류
@@ -69,108 +73,75 @@ public static void main (String[] args) {
 
 <br>
 
-## 추상클래스
-
-추상 클래스는 추상 메서드를 한 개 이상 갖고 있는 클래스다.
-
-추상 클래스를 선언하기 위해서는 클래스 앞에 추상 키워드인 `abstract`를 추가하면 된다.
-
-<br>
-
-## 추상메서드
-
-추상 메서드는 구현부 없이 선언부만 존재하는 메서드다.
-
-추상 메서드의 구현부는 추상 클래스를 상속받은 자손 클래스에서 오버라이딩하여 사용한다.
-
-추상 메서드는 다음과 같이 선언한다.
+예외 클래스에는 해당 예외에 대한 정보가 담겨 있는데, 이는 getMessage()와 printStackTrace()를 사용하여 확인할 수 있다.
 
 ```java
-abstract class AbstractClass {
-   abstract void abstractMethod();
-}
-```
-
-<br>
-
-그리고 추상 메서드는 다음과 같이 사용할 수 있다.
-
-```java
-abstract class AbstractClass {
-   abstract void abstractMethod();
-}
-
-class someClass extends AbstractClass{
-   @Override
-   void abstractMethod() {
-      //내용
+public static void main (String[] args) {
+   try {
+      //예외가 발생할 수 있는 로직
+   } catch(Exception1 e1) {
+      //예외 처리 로직
+      e1.printStackTrace();
+      System.out.println(e1.getMessage());
+   } catch(Exception2 e2) {
+      //예외 처리 로직
+      e2.printStackTrace();
+      System.out.println(e2.getMessage());
    }
 }
 ```
 
 <br>
 
-## 인터페이스
+## 예외 발생 방법
 
-인터페이스는 **추상메서드와 상수로만 이루어진 추상클래스**다.
+인위적으로 예외 발생 방법은 간단하다.
 
-추상클래스와 같이 온전한 메서드나 멤버변수를 가질 수 없다.
-
-인터페이스는 Interface로 선언할 수 있으며 사용 방법은 다음과 같다.
+예외 인스턴스를 생성한 후, throw 키워드를 이용하면 된다.
 
 ```java
-Interface someInterface{
-   public abstract abstractMethod();
+public static void main (String[] args) {
+   Exceptione e = new Exception("테스트");
+
+   throw e; //에러 발생
 }
 ```
 
 <br>
 
-인터페이스의 모든 멤버변수는 `public static final`이며, 모든 메서드는 `public abstrat`인데, 생략 가능하다.
+## throw
 
-<br>
+예외를 직접적으로 처리하는 방법이 try-catch 구문이라면, 간접적으로 처리하는 방법은 throw다.
 
-추상메서드를 구현하기 위해서는 자손 클래스에서 구현해야 하듯이, 인터페이스의 추상 메서드를 구현하기 위해서는 인터페이스를 상속받는 자손 클래스를 생성 후, 구현해야한다.
+메서드 선언부 뒤에 throw와 간접적으로 처리할 예외 클래스를 적으면 된다.
 
 ```java
-Interface someInterface{
-   public abstract void abstractMethod();
-}
-
-class someClass implements someInterface {
-   @Override
-   public void abstractMethod() {
-      //구현부
+public static void main (String[] args) {
+   try {
+      func1();
+   } catch(Exception1 e1) {
+      //예외 처리 로직
+   } catch(Exception2 e2) {
+      //예외 처리 로직
    }
 }
-```
- 
-<br>
 
-클래스가 인터페이스를 상속할 때는 implements 키워드를 사용한다.
-
-인터페이스를 상속받은 클래스는 인터페이스의 모든 추상 메서드를 구현해야 한다.
-
-그렇지 않을 경우, 해당 클래스에 abstract를 붙여 추상클래스로 선언해야 한다.
-
-또한, 인터페이스는 인터페이스로부터 상속 가능하다.
-
-<br>
-
-## 익명클래스
-
-익명클래스는 이름이 없는 클래스다.
-
-이름이 없기 때문에 지칭할 수 없으며, 따라서 단 한 번만 사용될 수 있는, 단 하나의 객체만을 생성할 수 있는 일회용 클래스다.
-
-익명클래스의 사용 방법은 다음과 같다
-
-```java
-new 조상클래스이름() {
-   //구현부
-}
-
-new 인터페이스이름() {
-   //구현부
+public static void func1() throws Exception1, Exception2 {
+   /*
+   //이 예제에서는 throws를 통해 간접적으로 예외를 처리하기 때문에
+   //아래 코드는 예외를 직접 처리하는 로직은 필요없다.
+   try {
+      //예외가 발생할 수 있는 로직
+   } catch(Exception1 e1) {
+      //예외 처리 로직
+   } catch(Exception2 e2) {
+      //예외 처리 로직
+   }
+   */
 }
 ```
+
+<br>
+
+throws가 붙은 메서드는 예외 발생 시, 예외를 호출한 메서드에서 직접 처리하게 던지는 방법이다.
+

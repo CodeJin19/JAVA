@@ -140,27 +140,3 @@ public static void func1() throws Exception1, Exception2 {
 <br>
 
 throws가 붙은 메서드는 예외 발생 시, 예외를 호출한 메서드에서 직접 처리하게 던지는 방법이다.
-
-<br>
-
-## finally
-
-finally는 try catch문 뒤에 오는 블럭으로 예외가 발생하던, 발생하지 않던 항상 실행되는 블럭이다.
-
-**심지어, 중간에 return문을 만나더라도 finally구문은 항상 실행된다.**
-
-```java
-public static void main (String[] args) {
-   try {
-      //예외가 발생할 수 있는 로직
-   } catch(Exception e) {
-      //예외 처리 로직
-   } finally {
-      //항상 실행될 로직
-   }
-}
-```
-
-<br>
-
-try catch finally의 진행 순서는 try > finally (예외가 발생하지 않는 경우)거나, try > catch > finally (예외가 발생하는 경우)다.

@@ -140,3 +140,5 @@ public static void func1() throws Exception1, Exception2 {
 <br>
 
 throws가 붙은 메서드는 예외 발생 시, 예외를 호출한 메서드에서 직접 처리하게 던지는 방법이다.
+
+따라서 위 예시의 func1에서 예외 발생 시, 해당 예외는 main으로 던져지며, main의 try catch문을 통해 예외를 처리한다.

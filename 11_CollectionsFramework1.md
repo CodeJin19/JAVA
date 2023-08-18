@@ -8,6 +8,8 @@
 
 [LinkedList](#LinkedList)
 
+[Deque](#Deque)
+
 <br>
 
 ## Collections Framework
@@ -54,3 +56,25 @@ ArrayList는 배열(Array)보다 좀 더 유연한, 확장된, 클래스다.
 | ---------- | ----------------------- | ---------------------------- | ---------------------------- |
 | ArrayList  | 빠름                    | 느림                         | 빠름                         |
 | LinkedList | 느림                    | 빠름                         | 느림                         |
+
+<br>
+
+## Deque
+
+Deque는 Double-Ended Queue로,
+
+head로 데이터를 삽입하고, tail로 데이터를 제거하는 queue와는 달리,
+
+head와 tail, 양 끝에서 데이터의 삽입과 제거가 가능한 queue다.
+
+<br>
+
+| Stack | Queue | Deque     |
+| ----- | ----- | --------- |
+| push  | offer | offerLast |
+| pop   | -     | pollLast  |
+| -     | poll  | pollFirst |
+| -     | peek  | peekFirst |
+| peek  | -     | peekLast  |
+
+<br>

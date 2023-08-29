@@ -6,6 +6,8 @@
 
 [Arrays](#Arrays)
 
+[Comparator and Comparable](#Comparator-and-Comparable)
+
 <br>
 
 ## Iterator
@@ -84,4 +86,20 @@ int[] arr1 = {4, 2, 3, 1, 5}
 int[] arr2 = {1, 2, 3, 4, 5}
 
 System.out.println(Arrays.equals(arr1, arr2)) // true
+```
+
+<br>
+
+## Comparator and Comparable
+
+배열을 오름차순으로 정렬할 때 Arrays.sort()를 사용하였지만, sort 메서드를 사용하기 위해서는 Comparator 또는 Comparable 인터페이스에 필요한 메서드가 정의되어야 한다.
+
+```JAVA
+public interface Comparator {
+   int compare(Object o1, Object o2)
+}
+
+public interface Comparable {
+   public int CompareTo(Object o);
+}
 ```

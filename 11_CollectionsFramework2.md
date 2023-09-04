@@ -8,6 +8,10 @@
 
 [Comparator and Comparable](#Comparator-and-Comparable)
 
+[HashSet](#HashSet)
+
+[TreeSet](#TreeSet)
+
 <br>
 
 ## Iterator
@@ -103,3 +107,21 @@ public interface Comparable {
    public int CompareTo(Object o);
 }
 ```
+
+<br>
+
+## HashSet
+
+HashSet은 Set 인터페이스의 대표적인 컬렉션이다.
+
+따라서, 순서가 없는 데이터의 집합을 다루며, 중복을 허용하지 않는다.
+
+<br>
+
+## TreeSet
+
+TreeSet 역시 Set 인터페이스의 컬렉션이다.
+
+따라서 데이터의 중복을 허용하지 않는다.
+
+순서의 경우, TreeSet은 데이터를 정렬하여 보관하기 때문에, 삽입한 순서를 저장하지는 않지만, 순서가 있다.
